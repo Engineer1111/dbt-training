@@ -4,16 +4,16 @@ o.orderid,
 o.orderdate,
 o.shipdate,
 o.shipmode,
-o.ordersellingprice - o.ordercostprice as orderprofit
-,o.ordersellingprice
-, o.ordercostprice
+o.ordersellingprice - o.ordercostprice as orderprofit,
+o.ordersellingprice,
+ o.ordercostprice,
 --from raw customer
-, c.customername
-, c.segment
-, c.country
+ c.customername,
+ c.segment,
+ c.country
 -- from raw product
 ,p.category
-, p.productname 
+, p.productname as product_name
 , p.subcategory
 from
 {{ ref('raw_orders') }} as o
